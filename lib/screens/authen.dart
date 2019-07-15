@@ -1,146 +1,138 @@
+//ctrl + .
 import 'package:flutter/material.dart';
+import 'package:put_foodthai/screens/register.dart';
 
-class Authen extends StatefulWidget 
-{
+//stl
+class Authen extends StatefulWidget {
   @override
   _AuthenState createState() => _AuthenState();
 }
 
-class _AuthenState extends State<Authen> 
-{
+class _AuthenState extends State<Authen> {
   // Explicit
 
   // Method
-  Widget signInButton()
-  {
-    return RaisedButton
-    (
+  Widget signInButton() {
+    return RaisedButton(
       color: Colors.green,
-      child: Text
-      ('Sign in', 
-       style: TextStyle
-       (
-         color: Colors.purple,
-
-       ), 
+      child: Text(
+        'Sign in',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 15.0,
+        ),
       ),
-      onPressed: () {},
+      onPressed: () {
+        print('Sign in activated!');
+      },
     );
   }
 
-    Widget signUpButton()
-  {
-    return RaisedButton
-    (
+  Widget signUpButton() {
+    return RaisedButton(
       color: Colors.yellow,
-      child: Text
-      (
+      child: Text(
         'Sign up',
-        style: TextStyle
-        (
+        style: TextStyle(
           color: Colors.red,
+          fontSize: 15.0,
+        ),
+      ),
+      onPressed: () {
+        print('Sign up activated!');
 
-        ), 
-      ), 
-      onPressed: () {},
+        var registerRoute =
+            MaterialPageRoute(builder: (BuildContext context) => Register());
+        Navigator.of(context).push(registerRoute);
+      },
     );
   }
 
-  Widget showButton()
-  {
-    return Container
-    (
-      width: 250.0, 
-      child: Row
-      (
-        children: <Widget>
-        [
-          Expanded(child: signInButton(), ),
-          mySizeBox(),
-          Expanded(child: signUpButton(), ),
-        ], 
+  Widget showButton() {
+    return Container(
+      width: 250.0,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: signInButton(),
+          ),
+          mySizeBox2(),
+          Expanded(
+            child: signUpButton(),
+          ),
+        ],
       ),
     );
   }
 
-  Widget userText()
-  {
-    return Container
-    (
+  Widget userText() {
+    return Container(
       width: 250.0,
-      child: TextFormField
-      (
-        decoration: InputDecoration
-        (
+      child: TextFormField(
+        decoration: InputDecoration(
           labelText: 'User :',
-          hintText: 'Input your username', 
-          labelStyle: TextStyle
-          (
-            fontSize: 20.0,
+          hintText: 'Input your username',
+          labelStyle: TextStyle(
+            fontSize: 15.0,
             fontWeight: FontWeight.bold,
+            color: Colors.purple,
           ),
         ),
-      ), 
+      ),
     );
   }
 
-    Widget passwordText()
-  {
-    return Container
-    (
+  Widget passwordText() {
+    return Container(
       width: 250.0,
-      child: TextFormField
-      (
-        decoration: InputDecoration
-        (
+      child: TextFormField(
+        decoration: InputDecoration(
           labelText: 'Password :',
-          hintText: 'Input your password', 
-          labelStyle: TextStyle
-          (
-            fontSize: 20.0,
+          hintText: 'Input your password',
+          labelStyle: TextStyle(
+            fontSize: 15.0,
             fontWeight: FontWeight.bold,
+            color: Colors.purple,
           ),
         ),
-      ), 
+      ),
     );
   }
 
-  Widget mySizeBox()
-  {
-    return SizedBox
-    (
-      height: 5.0, 
-      width: 5.0, 
+  Widget mySizeBox() {
+    return SizedBox(
+      height: 5.0,
+      width: 5.0,
     );
   }
 
-    Widget mySizeBox2()
-  {
-    return SizedBox
-    (
-      height: 20.0, 
-      width: 20.0, 
+  Widget mySizeBox2() {
+    return SizedBox(
+      height: 50.0,
+      width: 50.0,
     );
   }
 
-  Widget showLogo() 
-  {
-    return Container
-    (
+  Widget mySizeBox3() {
+    return SizedBox(
+      height: 25.0,
+      width: 25.0,
+    );
+  }
+
+  Widget showLogo() {
+    return Container(
       width: 160.0,
       height: 160.0,
       child: Image.asset('images/logo.png'),
     );
   }
 
-  Widget showAppName() 
-  {
-    return Text
-    (
+  Widget showAppName() {
+    return Text(
       'put_foodthai',
-      style: TextStyle
-      (
-        fontSize: 50.0,
+      style: TextStyle(
+        fontSize: 45.0,
         fontWeight: FontWeight.bold,
         color: Colors.lightBlue,
         fontFamily: 'Bahianita',
@@ -149,38 +141,31 @@ class _AuthenState extends State<Authen>
   }
 
   @override
-  Widget build(BuildContext context) 
-  {
-    return Scaffold
-    (
-      resizeToAvoidBottomPadding: false,
-      body: Container
-      (
-        decoration: BoxDecoration
-        (
-          gradient: LinearGradient
-          (
-            colors: [Colors.white, Colors.grey],
-            begin: Alignment.topCenter,
+  Widget build(BuildContext context) {
+    return Scaffold(
+        resizeToAvoidBottomPadding: false,
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.white, Colors.grey],
+              begin: Alignment.topCenter,
+            ),
           ),
-        ),
-        padding: EdgeInsets.only(top: 60.0),
-        alignment: Alignment.topCenter,
-        child: Column
-        (
-          children: <Widget>
-          [
-            showLogo(), 
-            mySizeBox(), 
-            showAppName(),
-            mySizeBox2(),
-            userText(),
-            passwordText(),
-            mySizeBox2(), 
-            showButton(),
-          ],
-        ),
-      )
-    );
+          padding: EdgeInsets.only(top: 60.0),
+          alignment: Alignment.topCenter,
+          child: Column(
+            children: <Widget>[
+              showLogo(),
+              mySizeBox(),
+              showAppName(),
+              mySizeBox3(),
+              userText(),
+              mySizeBox3(),
+              passwordText(),
+              mySizeBox2(),
+              showButton(),
+            ],
+          ),
+        ));
   }
 }
