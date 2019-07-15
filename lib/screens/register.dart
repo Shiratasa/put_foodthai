@@ -8,6 +8,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   // Explicit
   final formKey = GlobalKey<FormState>();
+  String name, user, password;
 
   // Method
   Widget nameText() {
@@ -26,8 +27,12 @@ class _RegisterState extends State<Register> {
           color: Colors.green[200],
           fontStyle: FontStyle.italic,
         ),
-      ),validator: (String value){
-        
+      ),
+      validator: (String value) {
+        if (value.isEmpty) return 'Please input your fullname';
+      },
+      onSaved: (String value) {
+        name = value;
       },
     );
   }
@@ -48,6 +53,12 @@ class _RegisterState extends State<Register> {
             color: Colors.blue[200],
             fontStyle: FontStyle.italic,
           )),
+      validator: (String value) {
+        if (value.isEmpty) return 'Please input your username';
+      },
+      onSaved: (String value) {
+        user = value;
+      },
     );
   }
 
@@ -67,6 +78,12 @@ class _RegisterState extends State<Register> {
             color: Colors.purple[200],
             fontStyle: FontStyle.italic,
           )),
+      validator: (String value) {
+        if (value.isEmpty) return 'Please input your passname';
+      },
+      onSaved: (String value) {
+        password = value;
+      },
     );
   }
 
@@ -78,6 +95,7 @@ class _RegisterState extends State<Register> {
 
         if (formKey.currentState.validate()) {
           formKey.currentState.save();
+          print('name = $name, user = $user, passwoed = $password');
         }
       },
     );
