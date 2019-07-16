@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' show get;
+import 'dart:convert';
 
 class Register extends StatefulWidget 
 {
@@ -156,9 +158,18 @@ class _RegisterState extends State<Register>
         {
           formKey.currentState.save();
           print('name = $name, user = $user, password = $password');
+          registerToServer();
         }
       },
     );
+  }
+
+  Future<void> registerToServer()async
+  {
+    String urlString = 'https://www.androidthai.in.th/ooo/addDataPUT.php?isAdd=true&Name=$name&User=$user&Password=$password';
+    var response = await get(urlString);
+    var result = json.decode(response.body);
+    print('result = $result');
   }
 
   Widget mySizeBox() 
