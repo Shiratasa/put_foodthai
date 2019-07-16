@@ -70,7 +70,8 @@ class _AuthenState extends State<Authen>
           print('Welcome back!');
           var myServiceRoute = MaterialPageRoute
           (
-            builder: (BuildContext context) => MyService()
+            builder: (BuildContext context) => 
+            MyService(userModel: userModel)
           ); 
           Navigator.of(context).pushAndRemoveUntil
           (
