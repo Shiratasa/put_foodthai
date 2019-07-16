@@ -1,6 +1,8 @@
 //ctrl + .
 import 'package:flutter/material.dart';
 import 'package:put_foodthai/screens/register.dart';
+import 'package:http/http.dart' show get;
+import 'dart:convert';
 
 //stl
 class Authen extends StatefulWidget 
@@ -37,9 +39,22 @@ class _AuthenState extends State<Authen>
         {
           formKey.currentState.save();
           print('user = $user, password = $password');
+          authentication();
         }
       },
     );
+  }
+
+  Future<void> authentication()async
+  {
+    String urlString = 'https://www.androidthai.in.th/ooo/getUserWhereUserPUT.php?isAdd=true&User=$user';
+    var response = await get(urlString);
+    var result = json.decode(response.body);
+    print('result = $result');
+    if ((result.toString()) == 'true') 
+    {
+      Navigator.of(context).pop();
+    }
   }
 
   Widget signUpButton() 
@@ -137,6 +152,7 @@ class _AuthenState extends State<Authen>
       width: 250.0,
       child: TextFormField
       (
+        obscureText: true,
         decoration: InputDecoration
         (
           labelText: 'Password :',
