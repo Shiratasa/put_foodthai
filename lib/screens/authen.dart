@@ -51,7 +51,7 @@ class _AuthenState extends State<Authen>
     String urlString = 'https://www.androidthai.in.th/ooo/getUserWhereUserPUT.php?isAdd=true&User=$user';
     var response = await get(urlString);
     var result = json.decode(response.body);
-    print('authorizing...');
+    print('Authorizing...');
     if ((result.toString()) == 'null') 
     {
       print('Invalid username!');
