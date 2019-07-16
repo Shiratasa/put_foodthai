@@ -170,6 +170,10 @@ class _RegisterState extends State<Register>
     var response = await get(urlString);
     var result = json.decode(response.body);
     print('result = $result');
+    if ((result.toString()) == 'true') 
+    {
+      Navigator.of(context).pop();
+    }
   }
 
   Widget mySizeBox() 
