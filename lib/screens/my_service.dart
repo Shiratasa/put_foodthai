@@ -12,6 +12,7 @@ class MyService extends StatefulWidget
 class _MyServiceState extends State<MyService> 
 {
   // Explicit
+  UserModel userModel;
 
   //Method
   @override
@@ -19,6 +20,43 @@ class _MyServiceState extends State<MyService>
   {
     // TODO: implement initState
     super.initState();
+    userModel = widget.userModel;
+    print('Name = ${userModel.Name}');
+  }
+
+  Widget showTitle()
+  {
+    return Container
+    (
+      alignment: Alignment.topLeft, 
+      child: Text('My Service'),
+    );
+  }
+
+  Widget showUser()
+  {
+    return Container
+    (
+      alignment: Alignment.topLeft, 
+      child: Text
+      (
+        '${userModel.Name} Login',
+        style: TextStyle
+        (
+          fontSize: 16.0, 
+          fontStyle: FontStyle.italic
+        ),
+      ),
+    );
+  }
+
+  Widget titleAppBar()
+  {
+    return Column(children: <Widget>
+    [
+      showUser(),
+      showUser()
+    ],);
   }
 
   @override
@@ -28,7 +66,7 @@ class _MyServiceState extends State<MyService>
     (
       appBar: AppBar
       (
-        title: Text('My service'),
+        title: titleAppBar(),
       ), 
       body: Text('body'),
     );
