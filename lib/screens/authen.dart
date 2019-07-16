@@ -53,10 +53,48 @@ class _AuthenState extends State<Authen>
     print('result = $result');
     if ((result.toString()) == 'true') 
     {
+      print('Welcome back!');
       Navigator.of(context).pop();
+    }
+    else if((result.toString()) == 'false') 
+    {
+      print('Invalid username!');
+      myAlertDialog('Invalid username!', 'Dont have username $user in database directory');
     }
   }
 
+  void myAlertDialog(String titleString, String messageString)
+  {
+    showDialog
+    (
+      context: context, 
+      builder: (BuildContext context)
+      {
+        return AlertDialog
+        (
+          title: Text
+          (
+            titleString, 
+            style: TextStyle(color: Colors.red),
+          ),
+          content: Text(messageString),
+          actions: <Widget>[alertButton()],
+        );
+      },
+    );
+  }
+
+  Widget alertButton()
+  {
+    return FlatButton
+    (
+      child: Text('OK'),
+      onPressed: ()
+      {
+        Navigator.of(context).pop();
+      },
+    );
+  }
   Widget signUpButton() 
   {
     return RaisedButton
