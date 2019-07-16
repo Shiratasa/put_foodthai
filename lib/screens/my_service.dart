@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:put_foodthai/models/user_model.dart';
 import 'package:http/http.dart' show get;
 import 'dart:convert';
-
 import 'package:put_foodthai/screens/food_model.dart';
 
 class MyService extends StatefulWidget 
