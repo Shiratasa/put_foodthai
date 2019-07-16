@@ -1,6 +1,7 @@
 //ctrl + .
 import 'package:flutter/material.dart';
 import 'package:put_foodthai/models/user_model.dart';
+import 'package:put_foodthai/screens/my_service.dart';
 import 'package:put_foodthai/screens/register.dart';
 import 'package:http/http.dart' show get;
 import 'dart:convert';
@@ -67,6 +68,14 @@ class _AuthenState extends State<Authen>
         if (password == truePassword) 
         {
           print('Welcome back!');
+          var myServiceRoute = MaterialPageRoute
+          (
+            builder: (BuildContext context) => MyService()
+          ); 
+          Navigator.of(context).pushAndRemoveUntil
+          (
+            myServiceRoute, (Route<dynamic> route) => false
+          );
         } 
         else 
         {

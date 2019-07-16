@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class _MyService extends StatefulWidget 
+class MyService extends StatefulWidget 
 {
   @override
-  __MyServiceState createState() => __MyServiceState();
+  _MyServiceState createState() => _MyServiceState();
 }
 
-class __MyServiceState extends State<_MyService> 
+class _MyServiceState extends State<MyService> 
 {
   @override
   Widget build(BuildContext context) 
