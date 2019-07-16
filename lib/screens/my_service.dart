@@ -67,6 +67,7 @@ class _MyServiceState extends State<MyService>
       appBar: AppBar
       (
         title: titleAppBar(),
+        backgroundColor: Colors.lightBlue
       ), 
       body: Text('body'),
     );
