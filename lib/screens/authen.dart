@@ -256,16 +256,16 @@ class _AuthenState extends State<Authen>
           (
             children: <Widget>
             [
-            showLogo(),
-            mySizeBox(),
-            showAppName(),
-            mySizeBox2(),
-            userText(),
-            mySizeBox2(),
-            passwordText(),
-            mySizeBox3(),
-            showButton(),
-            mySizeBox3()
+              showLogo(),
+              mySizeBox(),
+              showAppName(),
+              mySizeBox2(),
+              userText(),
+              mySizeBox2(),
+              passwordText(),
+              mySizeBox3(),
+              showButton(),
+              mySizeBox3()
             ],
           ),
         ),
