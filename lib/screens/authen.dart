@@ -290,14 +290,14 @@ class _AuthenState extends State<Authen>
   {
     return Text
     (
-      '         PUT_foodthai         ', 
+      '         PUT_thaifood         ', 
       style: TextStyle
       (
         fontSize: 50.0,
         fontWeight: FontWeight.bold,
         color: Colors.lightBlue,
         fontFamily: 'Bahianita',
-
+        // Alignment center?
       ),
     );
   }
