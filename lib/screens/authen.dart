@@ -290,7 +290,7 @@ class _AuthenState extends State<Authen>
   {
     return Text
     (
-      '         PUT_thaifood         ', 
+      '         PUT thaifood         ', 
       style: TextStyle
       (
         fontSize: 50.0,
