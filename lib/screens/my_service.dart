@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:put_foodthai/models/user_model.dart';
 import 'package:http/http.dart' show get;
+import 'package:put_foodthai/screens/detail_food.dart';
 import 'dart:convert';
 import 'package:put_foodthai/screens/food_model.dart';
 
@@ -100,7 +101,7 @@ class _MyServiceState extends State<MyService>
   {
     return Container
     (
-      alignment: Alignment.topLeft,
+      alignment: Alignment.topRight,
       child: Text(foodModels[index].Detail),
     );
   }
@@ -135,8 +136,8 @@ class _MyServiceState extends State<MyService>
   {
     return Container
     (
-      width: 10.0,
-      height: 10.0,
+      width: 100.0,
+      height: 100.0,
       margin: EdgeInsets.all(6.0),
       child: Image.network
       (
@@ -153,18 +154,32 @@ class _MyServiceState extends State<MyService>
       itemCount: foodModels.length,
       itemBuilder: (BuildContext context, int index)
       {
-        return Container
+        return GestureDetector
         (
-          alignment: Alignment.topLeft, 
-          child: Row
+          child: Container
           (
-            children: <Widget>
-            [
-              showNameFood(index),
-              showImage(index),
-              showDetailFood(index)
-            ],
+            alignment: Alignment.topLeft, 
+            child: Row
+            (
+              children: <Widget>
+              [
+                showImage(index),
+                showNameFood(index),
+                showDetailFood(index)
+              ],
+            ),
           ),
+          onTap: ()
+          {            
+            var detailRoute = MaterialPageRoute
+            (
+              builder: (BuildContext context) => DetailFood
+              (
+                foodModel: foodModels[index],
+              )
+            );
+            Navigator.of(context).push(detailRoute);
+            },
         );
       },
     );
