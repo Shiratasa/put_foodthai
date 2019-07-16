@@ -1,5 +1,6 @@
 //ctrl + .
 import 'package:flutter/material.dart';
+import 'package:put_foodthai/models/user_model.dart';
 import 'package:put_foodthai/screens/register.dart';
 import 'package:http/http.dart' show get;
 import 'dart:convert';
@@ -50,7 +51,7 @@ class _AuthenState extends State<Authen>
     String urlString = 'https://www.androidthai.in.th/ooo/getUserWhereUserPUT.php?isAdd=true&User=$user';
     var response = await get(urlString);
     var result = json.decode(response.body);
-    print('result = $result');
+    print('authorizing...');
     if ((result.toString()) == 'null') 
     {
       print('Invalid username!');
@@ -58,7 +59,21 @@ class _AuthenState extends State<Authen>
     }
     else
     {
-      print('Welcome back!');
+      print('User account: $result');
+      for (var myParseJSON in result) 
+      {
+        UserModel userModel = UserModel.parseJSON(myParseJSON);
+        String truePassword = userModel.Password;
+        if (password == truePassword) 
+        {
+          print('Welcome back!');
+        } 
+        else 
+        {
+          print('Invalid password!');
+          myAlertDialog('Invalid password!', 'Please recheck and input your password again');
+        }
+      }
     }
   }
 
