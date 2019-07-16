@@ -252,7 +252,7 @@ class _AuthenState extends State<Authen>
         child: Form
         (
           key: formKey,
-          child: ListView
+          child: Column
           (
             children: <Widget>
             [
