@@ -51,15 +51,14 @@ class _AuthenState extends State<Authen>
     var response = await get(urlString);
     var result = json.decode(response.body);
     print('result = $result');
-    if ((result.toString()) == 'true') 
-    {
-      print('Welcome back!');
-      Navigator.of(context).pop();
-    }
-    else if((result.toString()) == 'false') 
+    if ((result.toString()) == 'null') 
     {
       print('Invalid username!');
-      myAlertDialog('Invalid username!', 'Dont have username $user in database directory');
+      myAlertDialog('Invalid username!', 'Username "$user" was not found in our database directory');
+    }
+    else
+    {
+      print('Welcome back!');
     }
   }
 
